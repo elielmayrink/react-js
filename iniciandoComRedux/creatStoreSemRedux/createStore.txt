@@ -1,0 +1,12 @@
+* CreateStore => função que recebe o (reducer) por paramentro retorna outras funções, Metodos, 
+entre elas os 3 principais {
+     *getState() => que retorna  o valor do estado da app;
+     *dispatch() => que por parametro recebe uma (action) atualiza o state e dispara a action;
+     *subscribe() => que recebe por parametro uma func, da um push em um array,
+             |        declarado anteriormente passando a  func que recebe por paramentro;
+             |  
+             |
+              > subscribe tambem tem um metodo que desestrutura as funçoes que estao sendo passadas 
+              dando a possibilidade de serem executadas por tempo limitato.          
+    }        
+                         
