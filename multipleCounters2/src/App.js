@@ -1,15 +1,14 @@
 import React from 'react';
-import Counter from './components/conter'
+import Counters from './components/counters'
 import './App.css';
 
 const App = () => {
-
   
+
     return (
       <div className="App">
-        <h1>Counter com React</h1> 
-
-        <Counter />
+        <h1>Multiple Counter with React</h1>  
+          <Counters />
      </div>
      )
     
