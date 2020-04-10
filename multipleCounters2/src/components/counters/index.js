@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Counter from "../counter"
-
+import {addCounter, removeCounter, increment, decrement } from '../../redux-flow/reducers/counters/actions-creators';
 
 const Counters = ({removeCounter, increment, decrement,addCounter,counters}) => {
  //const array = 
@@ -34,10 +34,10 @@ const mapStateToProp = (state) => ({
 
 const mapDispachToProps = (dispatch) => (
 {
-    addCounter: ()  => dispatch({type: "ADD_COUNTER"}),
-    removeCounter: (index) => () => dispatch({type: "REMOVE_COUNTER",index}),
-    increment: (index) => () => dispatch({type: "INCREMENT", index}),
-    decrement: (index) => () => dispatch({ type: "DECREMENT", index })
+    addCounter: ()  => dispatch(addCounter()),
+    removeCounter: (index) => () =>  dispatch(removeCounter(index) ),
+    increment: (index) => () => dispatch(increment(index)),
+    decrement: (index) => () => dispatch(decrement(index))
 }
 )
 export default connect(mapStateToProp, mapDispachToProps) (Counters);
