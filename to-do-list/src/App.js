@@ -20,7 +20,6 @@ const togggleItem = (id, list, setList) => {
   const newItem = {...item, done: !item.done};
   const newList = list.map(i => (i.id === id ? newItem : i));
   setList(newList)
-  console.log(newItem.done)
 }
 // função para ter acesso as fuçoes que estão fora da função app atravez do callback
 const handlesubmit = (e, setNewItemText, callback) => {
@@ -31,7 +30,9 @@ const handlesubmit = (e, setNewItemText, callback) => {
 
 function App() {
   const [list, setList] = useState([]);
-  const [newItemText, setNewItemText] = useState("")
+  const [newItemText, setNewItemText] = useState("");
+  const doneList = list.filter(i => i.done === true);
+  const [todoDone, setTodoDone] = useState(false);
 
 
   return (
@@ -65,7 +66,16 @@ function App() {
           )
           }
         </ul>
+        
       </div>
+      <div>
+            
+            <button onClick={() => setTodoDone(!todoDone)}>Show done</button>
+
+            <ul style={{listStyle: "decimal"}}>
+        {todoDone && doneList.map(i => <li key={i.id}><span className={i.done ? 'todoDone' : ""}>{i.text}</span></li>)}
+            </ul>
+          </div>
     </div>
   );
 }
